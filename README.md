@@ -3,6 +3,14 @@
 
 Model Context Protocol (MCP) server for accessing Github.
 
+## Installing via Smithery
+
+To install GitHub Integration automatically via [Smithery](https://smithery.ai/server/@tiagoefreitas/mcp-smithery-github):
+
+```bash
+npx -y @smithery/cli install @tiagoefreitas/mcp-smithery-github
+```
+
 ## Repository tools:
 Tools for managing GitHub repositories:
 
