@@ -15,6 +15,9 @@ export default function ({ config }: { config: z.infer<typeof configSchema> }) {
 	try {
 		console.log("Starting GitHub MCP Server...")
 
+		// Get token from environment variable if it exists
+		const githubToken = process.env.GITHUB_TOKEN || config.githubPersonalAccessToken
+
 		// Create a new MCP server
 		const server = new McpServer({
 			name: "GitHub MCP Server",
@@ -22,7 +25,7 @@ export default function ({ config }: { config: z.infer<typeof configSchema> }) {
 		})
 
 		// Initialize Octokit client
-		const octokit = new Octokit({ auth: config.githubPersonalAccessToken })
+		const octokit = new Octokit({ auth: githubToken })
 
 		// Register tool groups
 		registerSearchTools(server, octokit)
